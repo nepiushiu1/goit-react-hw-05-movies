@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const Appbar = () => {
   return (
     <header className={css.header}>
-      <NavLink to="/" className={css.name}>
+      <NavLink to="home" className={css.name}>
         Home
       </NavLink>
       <NavLink to="movies" className={css.name}>

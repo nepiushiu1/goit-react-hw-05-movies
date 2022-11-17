@@ -10,6 +10,15 @@ export const fetchPopularMovies = async () => {
   );
   return response.data;
 };
-
 // https://api.themoviedb.org/3/trending/all/day?api_key=<<api_key>>
-// fetchPopularMovies();
+
+// запрос на информацию о выбраном фильме
+
+export const fetchSelectedFilm = async movie_id => {
+  const response = await axios.get(
+    `${BASE_URL}movie/${movie_id}?api_key=${API_KEY}&language=en-US`
+  );
+  return response.data;
+};
+
+// https://api.themoviedb.org/3/movie/{movie_id}? api_key=<<api_key>>&language=en-US

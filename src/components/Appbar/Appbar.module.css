@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  border-bottom: solid 3px rgb(226, 211, 211);
+}
+.name {
+  margin: 20px;
+  font-weight: 800;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.name:hover,
+.name:focus {
+  color: blue;
+  border-bottom: solid 3px blue;
+}

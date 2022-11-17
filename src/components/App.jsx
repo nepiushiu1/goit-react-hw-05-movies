@@ -1,16 +1,16 @@
+import { Home } from '../../src/pages/Home/Home';
+import { Routes, Route } from 'react-router-dom';
+import { Loyaut } from './Loyaut/Loyaut';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Loyaut />}>
+          <Route path="home" element={<Home />}></Route>
+          <Route path="movies" element={<div>Movies</div>}></Route>
+        </Route>
+      </Routes>
+    </>
   );
 };

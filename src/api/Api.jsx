@@ -14,10 +14,8 @@ export const fetchPopularMovies = async () => {
 
 // запрос на информацию о выбраном фильме
 
-export const fetchSelectedFilm = async movie_id => {
-  const response = await axios.get(
-    `${BASE_URL}movie/${movie_id}?api_key=${API_KEY}&language=en-US`
-  );
+export const fetchSelectedFilm = async id => {
+  const response = await axios.get(`${BASE_URL}movie/${id}?api_key=${API_KEY}`);
   return response.data;
 };
 

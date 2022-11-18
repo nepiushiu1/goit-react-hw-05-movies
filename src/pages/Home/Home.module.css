@@ -1,0 +1,12 @@
+.link {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+.link:hover {
+  color: blue;
+}
+
+.item {
+  padding: 3px;
+}

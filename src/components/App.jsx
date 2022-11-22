@@ -8,7 +8,7 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Loyaut />}>
-          <Route path="home" element={<Home />}></Route>
+          <Route index element={<Home />}></Route>
           <Route path="movies" element={<Movies />}></Route>
         </Route>
       </Routes>

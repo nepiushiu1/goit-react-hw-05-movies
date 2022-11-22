@@ -14,5 +14,4 @@
 .name:hover,
 .name:focus {
   color: blue;
-  border-bottom: solid 3px blue;
 }

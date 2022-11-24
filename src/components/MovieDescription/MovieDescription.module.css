@@ -1,0 +1,10 @@
+.conteiner {
+  display: flex;
+  margin-left: 15px;
+}
+.btn {
+  margin: 20px;
+}
+.description {
+  margin-left: 15px;
+}

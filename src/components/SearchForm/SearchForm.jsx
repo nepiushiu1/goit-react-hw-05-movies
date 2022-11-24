@@ -9,9 +9,7 @@ export const SearchForm = ({ onSubmit }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // if (request.trim() === '') {
-    //   return Error('Please, type search');
-    // }
+
     onSubmit(request);
     setRequest('');
   };

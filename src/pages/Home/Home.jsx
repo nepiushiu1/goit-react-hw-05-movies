@@ -11,16 +11,13 @@ export const Home = () => {
     async function fetchMovies() {
       try {
         const movies = await fetchPopularMovies();
-        console.log(movies.results);
-        setMovies(movies.results);
+        setMovies(movies);
       } catch (error) {
         console.log(error.message);
       }
     }
     fetchMovies();
   }, []);
-
-  console.log(movies);
 
   return (
     <>

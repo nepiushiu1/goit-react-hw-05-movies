@@ -8,7 +8,7 @@ export const fetchPopularMovies = async () => {
   const response = await axios.get(
     `${BASE_URL}trending/all/day?api_key=${API_KEY}`
   );
-  return response.data;
+  return response.data.results;
 };
 // https://api.themoviedb.org/3/trending/all/day?api_key=<<api_key>>
 

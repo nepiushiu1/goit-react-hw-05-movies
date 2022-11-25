@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useParams, Link, NavLink, useLocation } from 'react-router-dom';
 
 import { fetchSelectedFilm } from '../../api/Api';
 
@@ -33,9 +33,9 @@ export const MovieDescription = () => {
   return (
     <>
       <main>
-        <Link className={css.btn} to={backLinkHref}>
+        <NavLink className={css.btn} to={backLinkHref}>
           Go back
-        </Link>
+        </NavLink>
         <div className={css.conteiner}>
           <img
             src={
@@ -57,14 +57,17 @@ export const MovieDescription = () => {
             </div>
           </div>
         </div>
-        <ul>
-          <li>
-            <Link>Cast</Link>
-          </li>
-          <li>
-            <Link>Reviews</Link>
-          </li>
-        </ul>
+        <div className={css.a}>
+          <h3>Additional information</h3>
+          <ul>
+            <li>
+              <Link>Cast</Link>
+            </li>
+            <li>
+              <Link>Reviews</Link>
+            </li>
+          </ul>
+        </div>
       </main>
     </>
   );

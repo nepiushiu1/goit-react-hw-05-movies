@@ -19,4 +19,15 @@ export const fetchSelectedFilm = async id => {
   return response.data;
 };
 
-// https://api.themoviedb.org/3/movie/{movie_id}? api_key=<<api_key>>&language=en-US
+// https://api.themoviedb.org/3/movie/{movie_id}? api_key=<<api_key>>
+
+// запрос о поиске фильма по названию
+
+export const fetchSelectedMovieTitle = async query => {
+  const response = await axios.get(
+    `${BASE_URL}search/movie?api_key=${API_KEY}&query=${query}`
+  );
+  return response.data;
+};
+
+// https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&query={guery}

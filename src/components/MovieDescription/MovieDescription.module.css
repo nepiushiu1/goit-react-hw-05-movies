@@ -1,10 +1,14 @@
 .conteiner {
   display: flex;
-  margin-left: 15px;
+  margin: 20px;
 }
 .btn {
-  margin: 20px;
+  margin-left: 20px;
 }
 .description {
   margin-left: 15px;
+}
+.a {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }

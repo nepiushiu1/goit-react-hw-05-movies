@@ -10,7 +10,6 @@ export const fetchPopularMovies = async () => {
   );
   return response.data.results;
 };
-// https://api.themoviedb.org/3/trending/all/day?api_key=<<api_key>>
 
 // запрос на информацию о выбраном фильме
 
@@ -18,8 +17,6 @@ export const fetchSelectedFilm = async id => {
   const response = await axios.get(`${BASE_URL}movie/${id}?api_key=${API_KEY}`);
   return response.data;
 };
-
-// https://api.themoviedb.org/3/movie/{movie_id}? api_key=<<api_key>>
 
 // запрос о поиске фильма по названию
 
@@ -30,4 +27,16 @@ export const fetchSelectedMovieTitle = async query => {
   return response.data;
 };
 
-// https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&query={guery}
+// запрос о актерах выбраного фильма
+
+export const getCast = async id => {
+  const response = await axios.get(`/movie/${id}/credits?api_key=${API_KEY}`);
+  return response.data;
+};
+
+// запрос о отзывах про выбраный фильм
+
+export const getReviews = async id => {
+  const response = await axios.get(`/movie/${id}/reviews?api_key=${API_KEY}`);
+  return response.data;
+};

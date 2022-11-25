@@ -15,8 +15,6 @@ export const Movies = () => {
   const location = useLocation();
   const toBackLocation = `${location.pathname}${location.search}`;
 
-  console.log(location);
-
   const searchFilms = event => {
     event.preventDefault();
     if (query.trim() === '') {

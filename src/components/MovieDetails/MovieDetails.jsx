@@ -1,11 +1,17 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link, NavLink, useLocation } from 'react-router-dom';
+import {
+  useParams,
+  Link,
+  NavLink,
+  useLocation,
+  Outlet,
+} from 'react-router-dom';
 
 import { fetchSelectedFilm } from '../../api/Api';
 
-import css from './MovieDescription.module.css';
+import css from './MovieDetails.module.css';
 
-export const MovieDescription = () => {
+export const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState([]);
   const location = useLocation();
@@ -22,9 +28,9 @@ export const MovieDescription = () => {
     fetchMovies();
   }, [movieId]);
 
-  console.log(movie);
-
   const img = 'https://image.tmdb.org/t/p/w300';
+  const imageMissing =
+    'https://houseofzayn.co.nz/wp-content/uploads/2019/08/nopicture.gif';
 
   const { poster_path, original_title, genres, overview, vote_average } = movie;
 
@@ -39,8 +45,7 @@ export const MovieDescription = () => {
         <div className={css.conteiner}>
           <img
             src={
-              //   movie.poster_path?
-              `${img}${poster_path}`
+              movie.poster_path ? `${img}${poster_path}` : `${imageMissing}`
               // : '../../public/logo192.png'
               //   `https://image.tmdb.org/t/p/w300${movie.poster_path}`
             }
@@ -61,14 +66,15 @@ export const MovieDescription = () => {
           <h3>Additional information</h3>
           <ul>
             <li>
-              <Link>Cast</Link>
+              <Link to="cast">Cast</Link>
             </li>
             <li>
-              <Link>Reviews</Link>
+              <Link to="reviews">Reviews</Link>
             </li>
           </ul>
         </div>
       </main>
+      <Outlet context={movieId} />
     </>
   );
 };

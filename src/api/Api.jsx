@@ -30,13 +30,17 @@ export const fetchSelectedMovieTitle = async query => {
 // запрос о актерах выбраного фильма
 
 export const getCast = async id => {
-  const response = await axios.get(`/movie/${id}/credits?api_key=${API_KEY}`);
-  return response.data;
+  const response = await axios.get(
+    `${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
+  );
+  return response.data.cast;
 };
 
 // запрос о отзывах про выбраный фильм
 
 export const getReviews = async id => {
-  const response = await axios.get(`/movie/${id}/reviews?api_key=${API_KEY}`);
+  const response = await axios.get(
+    `${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+  );
   return response.data;
 };

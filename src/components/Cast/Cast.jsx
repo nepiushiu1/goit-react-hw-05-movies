@@ -7,14 +7,19 @@ export const Cast = () => {
   const movieId = useOutletContext();
 
   useEffect(() => {
-    try {
-      getCast(movieId).then(response => {
-        setCast(response.cast);
-      });
-    } catch (error) {
-      console.log(error);
+    async function getCredits() {
+      try {
+        const fetchCast = await getCast(movieId);
+
+        setCast(fetchCast);
+      } catch (error) {
+        console.log(error);
+      }
     }
+    getCredits();
   }, [movieId]);
+  console.log(cast);
+  if (!cast) return null;
 
   const img = 'https://image.tmdb.org/t/p/w200';
   const imageMissing =
@@ -22,19 +27,16 @@ export const Cast = () => {
 
   return (
     <div>
-      {/* {!cast.length && <Message>Sorry! Information not found</Message>} */}
       <ul>
-        {cast.map(({ id, original_name, profile_path }) => {
-          return (
-            <li key={id}>
-              <img
-                src={profile_path ? `${img}${profile_path}` : `${imageMissing}`}
-                alt={original_name}
-              />
-              <p>{original_name}</p>
-            </li>
-          );
-        })}
+        {cast.map(({ id, original_name, profile_path }) => (
+          <li key={id}>
+            <img
+              src={profile_path ? `${img}${profile_path}` : `${imageMissing}`}
+              alt={original_name}
+            />
+            <p>{original_name}</p>
+          </li>
+        ))}
       </ul>
     </div>
   );

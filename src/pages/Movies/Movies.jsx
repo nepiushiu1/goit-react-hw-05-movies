@@ -1,16 +1,15 @@
 import { fetchSelectedMovieTitle } from '../../api/Api';
 
-// import { Formik, Form } from 'formik';
 import { Link } from 'react-router-dom';
 
 import { useState, useEffect } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 
-export const Movies = () => {
+const Movies = () => {
   const [query, setQuery] = useState('');
   const [films, setFilms] = useState([]);
   const [message, setMessage] = useState();
-  // 'To display films, enter a query in the search field'
+
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
   const toBackLocation = `${location.pathname}${location.search}`;
@@ -71,3 +70,4 @@ export const Movies = () => {
     </>
   );
 };
+export default Movies;

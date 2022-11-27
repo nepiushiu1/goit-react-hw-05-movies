@@ -2,7 +2,9 @@ import { getReviews } from '../../api/Api';
 import { useEffect, useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 
-export const Reviews = () => {
+import PropTypes from 'prop-types';
+
+const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const movieId = useOutletContext();
 
@@ -31,6 +33,7 @@ export const Reviews = () => {
   if (!reviews) return null;
   return (
     <div>
+      {!reviews.length && <p>Sorry! Information not found</p>}
       <ul>
         {reviews.map(({ id, author, content }) => (
           <li key={id}>
@@ -41,4 +44,12 @@ export const Reviews = () => {
       </ul>
     </div>
   );
+};
+
+export default Reviews;
+
+Reviews.propTypes = {
+  id: PropTypes.number.isRequired,
+  author: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
 };

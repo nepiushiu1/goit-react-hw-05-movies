@@ -11,7 +11,7 @@ import { fetchSelectedFilm } from '../../api/Api';
 
 import css from './MovieDetails.module.css';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState([]);
   const location = useLocation();
@@ -78,3 +78,4 @@ export const MovieDetails = () => {
     </>
   );
 };
+export default MovieDetails;

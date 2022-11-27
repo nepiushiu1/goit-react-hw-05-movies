@@ -33,7 +33,7 @@ export const getCast = async id => {
   const response = await axios.get(
     `${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
   );
-  return response.data.cast;
+  return response.data;
 };
 
 // запрос о отзывах про выбраный фильм

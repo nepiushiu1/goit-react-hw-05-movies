@@ -33,16 +33,20 @@ const Movies = () => {
       return;
     }
     setMessage('');
-    fetchSelectedMovieTitle(searchQuery).then(({ results }) =>
-      setFilms(results)
-    );
+    fetchSelectedMovieTitle(searchQuery).then(({ results }) => {
+      if (results.length === 0) {
+        setMessage('Sorry, nothing was found, please try your search again');
+      }
+
+      setFilms(results);
+    });
   }, [searchQuery]);
 
-  useEffect(() => {
-    if (searchQuery && !films.length) {
-      setMessage('Sorry, nothing was found, please try your search again');
-    }
-  }, [films.length, searchQuery]);
+  // useEffect(() => {
+  //   if (searchQuery && !films.length) {
+  //     setMessage('Sorry, nothing was found, please try your search again');
+  //   }
+  // }, [films.length, searchQuery]);
 
   return (
     <>
